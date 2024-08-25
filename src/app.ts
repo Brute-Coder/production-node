@@ -5,10 +5,12 @@ import healthRouter from "./router/healthRouter"
 import globalErrorHandler from "./middleware/globalErrorHandler"
 import httpError from "./util/httpError"
 import ResponseMessage from "./constant/responseMessage"
+import helmet from "helmet"
 
 const app: Application = express()
 
 //Middleware
+app.use(helmet())
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "../", "public")))
 
